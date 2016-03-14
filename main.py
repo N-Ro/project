@@ -6,7 +6,7 @@ import configparser
 fieldConfig = configparser.ConfigParser()
 fieldConfig.read('config.ini')
 
-# On va chercher les sections du fichier de config
+# On va chercher les sections (champs) du fichier de config
 sectionList = fieldConfig.sections()
 
 print(sectionList)
@@ -20,3 +20,7 @@ for fieldName in sectionList :
 		fieldList.append(fieldName)
 		
 print(fieldList)
+
+# On souhaite obtenir les descriptions des champs actifs :
+for singleField in fieldList:
+	print(fieldConfig.get(singleField, 'description'))

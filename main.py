@@ -10,3 +10,13 @@ fieldConfig.read('config.ini')
 sectionList = fieldConfig.sections()
 
 print(sectionList)
+
+# On vérifie que le champs est à prendre en compte (True - False)
+# On construit une liste en conséquence
+fieldList = []
+
+for fieldName in sectionList :
+	if fieldConfig.getboolean(fieldName,'active') == True:
+		fieldList.append(fieldName)
+		
+print(fieldList)
